@@ -3,14 +3,14 @@ import Link from "next/link";
 import { HiMenu, HiSearch } from "react-icons/hi";
 
 export default function NavBar() {
-  
-const [sideBar,setSidebar]=useState(true);
+ 
+const [sideBar,setSidebar]=useState(false);
 const [sideNavClass, setSideNavClass]=useState("d-sm-block d-md-none sidebar");
   
 const navLinks=[{pageName:"Home",route:"/"},{pageName:"Home",route:"/"}];
 
 const toggleSideBar=()=>{
- setSidebar(!sideBar) ; 
+ //setSidebar(!sideBar) ; 
 //  if(sideBar===true){
 //    setSidebar(false);
 //  }else {
@@ -21,11 +21,11 @@ const toggleSideBar=()=>{
     
  
   useEffect(() => {
-    // //sidebar properties
-    // const sidebar=document.querySelector(".sidebar");
+    //sidebar properties
+    const sidebar=document.querySelector(".sidebar");
 
-    // if(sideBar) sidebar.classList.add("active");
-    //   else sidebar.classList.remove("active");
+    if(sideBar) sidebar.classList.add("active");
+      else sidebar.classList.remove("active");
 
       
     const navbar = document.querySelector(".navbar");
@@ -185,7 +185,7 @@ const toggleSideBar=()=>{
       </nav>
       <div className="spot d-none d-md-block "></div>
       <nav className="d-sm-block d-md-none sidenav" ><button className="toggle-icon"><HiMenu onClick={toggleSideBar()}/></button></nav>
-        <div className={sideBar?"d-sm-block d-md-none sidebar active":"d-sm-block d-md-none sidebar"} id="mySidebar" >
+        <div className={"d-sm-block d-md-none sidebar "} id="mySidebar" >
 
           <a href="#" className="selected">About</a>
           <a href="#">Services</a>
